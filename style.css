@@ -1,221 +1,284 @@
-/* Resetowanie marginesów i wypełnień */
+/* Definicja CSS Variables */
+:root {
+  --primary-color: #2A4F3F;
+  --secondary-color: #F5F5F5;
+  --accent-color: #DAA520;
+}
+
+/* Reset i podstawowe style */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Podstawowe ustawienia body */
 body {
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-  background-color: #FAF7F4; /* Jasne tło */
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  scroll-behavior: smooth;
 }
 
-/* Sekcja hero (nagłówek) */
-.hero-section {
-  display: flex;
-  height: 80vh;
-  background-color: #2C3A37; /* Ciemniejsze tło (zielono-szare) */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
 }
 
-/* Lewa część z tłem / zdjęciem w kształcie łuku */
-.hero-image {
-  flex: 2;
-  background: url('https://via.placeholder.com/800x600') no-repeat center center;
-  background-size: cover;
-  border-bottom-right-radius: 50% 30%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Efekt fade-in – początkowo sekcje są przesunięte i ukryte */
+section {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Klasa dodawana przez IntersectionObserver */
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* HERO SECTION */
+#hero {
   position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-attachment: fixed; /* Efekt paralaksy */
 }
 
-/* Logo / nazwa firmy w hero */
-.hero-image .logo {
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 20px 40px;
-  border-radius: 10px;
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.hero-image .logo h1 {
-  color: #1A3C40;
-  font-size: 2rem;
-}
-
-/* Prawa część z nawigacją pionową */
-.main-nav {
-  flex: 1;
-  background-color: #2C3A37;
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Gradient nakładka: od ciemnozielonego z przezroczystością do przezroczystego */
+  background: linear-gradient(90deg, #2A4F3FDD 30%, transparent 70%);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.main-nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.main-nav li a {
-  color: #FAF7F4;
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: color 0.3s;
-}
-
-.main-nav li a:hover {
-  color: #F2C14E; /* Akcent przy najechaniu */
-}
-
-/* Główna część strony (sekcje) */
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-/* Sekcja "O nas" */
-.onas-section {
-  margin-bottom: 60px;
-}
-
-.onas-section h2 {
-  font-size: 2rem;
-  color: #1A3C40;
-  margin-bottom: 20px;
-}
-
-.onas-section p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* Sekcja "Nasze Produkty" */
-.produkty-section h2 {
-  font-size: 2rem;
-  color: #1A3C40;
-  margin-bottom: 40px;
+.hero-content {
   text-align: center;
+  color: var(--secondary-color);
 }
 
-.product-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-  gap: 20px;
-}
-
-.product-item .product-text {
-  flex: 1;
-}
-
-.product-item .product-text h3 {
+.subtitle {
   font-size: 1.5rem;
-  color: #1A3C40;
   margin-bottom: 10px;
 }
 
-.product-item .product-text p {
-  color: #555;
-  line-height: 1.5;
+.main-header {
+  font-size: 4rem;
+  position: relative;
+  display: inline-block;
 }
 
-.product-item .product-image {
-  flex: 1;
+/* Animacja podkreślenia nagłówka "GORDON" */
+.underline-animation {
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background-color: var(--accent-color);
+  animation: underline 2s forwards;
+}
+
+@keyframes underline {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Przycisk CTA z mikroanimacją pulsowania obwodu */
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s, color 0.3s;
+  animation: pulseBorder 3s infinite;
+}
+
+.cta-button:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+@keyframes pulseBorder {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(218, 165, 32, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(218, 165, 32, 0);
+  }
+}
+
+/* ABOUT SECTION */
+#about {
+  padding: 60px 20px;
+}
+
+.about-container {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
 }
 
-.product-item .product-image img {
+.about-image img {
   width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
+  max-width: 300px;
+  border-radius: 50%;
 }
 
-/* Odwrócenie kolejności co drugi produkt */
-.product-item.reverse {
-  flex-direction: row-reverse;
+.about-text {
+  flex: 1;
 }
 
-/* Sekcja Kontakt */
-.kontakt-section h2 {
-  font-size: 2rem;
-  color: #1A3C40;
-  margin-bottom: 20px;
+/* PROJECTS SECTION */
+#projects {
+  padding: 60px 20px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.project-tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.3s;
+}
+
+.project-tile img {
+  width: 100%;
+  display: block;
+}
+
+/* Overlay pojawiający się przy hoverze z efektem podświetlenia */
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(218, 165, 32, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
   text-align: center;
 }
 
-.kontakt-section form {
+.project-tile:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-icons i {
+  margin: 5px;
+  font-size: 1.5rem;
+}
+
+/* Stylizacja tekstu "$50 off" z pseudo-elementem */
+.discount {
+  position: relative;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-top: 10px;
+}
+
+.discount::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  animation: borderAnimation 2s infinite;
+}
+
+@keyframes borderAnimation {
+  0% { transform: scaleX(0); }
+  50% { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
+}
+
+/* CONTACT SECTION */
+#contact {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact-container {
   max-width: 600px;
   margin: 0 auto;
+}
+
+.contact-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-bottom: 20px;
 }
 
-.kontakt-section label {
-  font-weight: 600;
-  color: #333;
-}
-
-.kontakt-section input,
-.kontakt-section textarea {
+.contact-form input,
+.contact-form textarea {
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+  font-family: inherit;
 }
 
-.kontakt-section button {
-  padding: 12px;
+.contact-form button {
+  padding: 10px;
   border: none;
-  background-color: #1A3C40;
-  color: #FAF7F4;
-  font-size: 1rem;
-  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-family: inherit;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
-.kontakt-section button:hover {
-  background-color: #F2C14E;
-  color: #333;
+.contact-form button:hover {
+  background-color: var(--accent-color);
 }
 
-/* Stopka */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #2C3A37;
-  color: #FAF7F4;
+.social-media a {
+  margin: 0 10px;
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
-/* Responsywność */
-@media (max-width: 768px) {
-  .hero-section {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .hero-image {
-    border-bottom-right-radius: 0;
-  }
-
-  .main-nav {
+/* RESPONSYWNOŚĆ */
+/* Mobile-first: układ jednokolumnowy */
+@media (min-width: 768px) {
+  .about-container {
     flex-direction: row;
   }
-
-  .main-nav ul {
-    flex-direction: row;
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .product-item {
-    flex-direction: column;
-  }
-
-  .product-item.reverse {
-    flex-direction: column;
-  }
+@media (min-width: 1024px) {
+  /* Dodatkowe style dla desktop, jeśli potrzebne */
 }
