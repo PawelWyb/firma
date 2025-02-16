@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interaktywne CV - Paweł Wybieralski</title>
+    <!-- Biblioteka do animacji -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        #book {
+            width: 1240px;  
+            height: 1754px;
+            margin: 0 auto;
+        }
+        .page {
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .page img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="book">
+        <!-- Strona 1 -->
+        <div class="page">
+            <img src="strona1.png" alt="Strona 1">
+        </div>
+        <!-- Strona 2 -->
+        <div class="page">
+            <img src="strona2.png" alt="Strona 2">
+        </div>
+        <!-- Strona 3 -->
+        <div class="page">
+            <img src="strona3.png" alt="Strona 3">
+        </div>
+    </div>
+
+    <script>
+        $('#book').turn({
+            width: 1240,   
+            height: 1754,
+            acceleration: true,
+            gradients: true,
+            duration: 1000
+        });
+    </script>
+</body>
+</html>

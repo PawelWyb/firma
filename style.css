@@ -1,0 +1,221 @@
+/* Resetowanie marginesów i wypełnień */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Podstawowe ustawienia body */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background-color: #FAF7F4; /* Jasne tło */
+}
+
+/* Sekcja hero (nagłówek) */
+.hero-section {
+  display: flex;
+  height: 80vh;
+  background-color: #2C3A37; /* Ciemniejsze tło (zielono-szare) */
+}
+
+/* Lewa część z tłem / zdjęciem w kształcie łuku */
+.hero-image {
+  flex: 2;
+  background: url('https://via.placeholder.com/800x600') no-repeat center center;
+  background-size: cover;
+  border-bottom-right-radius: 50% 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Logo / nazwa firmy w hero */
+.hero-image .logo {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px 40px;
+  border-radius: 10px;
+}
+
+.hero-image .logo h1 {
+  color: #1A3C40;
+  font-size: 2rem;
+}
+
+/* Prawa część z nawigacją pionową */
+.main-nav {
+  flex: 1;
+  background-color: #2C3A37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.main-nav li a {
+  color: #FAF7F4;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.main-nav li a:hover {
+  color: #F2C14E; /* Akcent przy najechaniu */
+}
+
+/* Główna część strony (sekcje) */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Sekcja "O nas" */
+.onas-section {
+  margin-bottom: 60px;
+}
+
+.onas-section h2 {
+  font-size: 2rem;
+  color: #1A3C40;
+  margin-bottom: 20px;
+}
+
+.onas-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Sekcja "Nasze Produkty" */
+.produkty-section h2 {
+  font-size: 2rem;
+  color: #1A3C40;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 20px;
+}
+
+.product-item .product-text {
+  flex: 1;
+}
+
+.product-item .product-text h3 {
+  font-size: 1.5rem;
+  color: #1A3C40;
+  margin-bottom: 10px;
+}
+
+.product-item .product-text p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.product-item .product-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.product-item .product-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+/* Odwrócenie kolejności co drugi produkt */
+.product-item.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Sekcja Kontakt */
+.kontakt-section h2 {
+  font-size: 2rem;
+  color: #1A3C40;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.kontakt-section form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.kontakt-section label {
+  font-weight: 600;
+  color: #333;
+}
+
+.kontakt-section input,
+.kontakt-section textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.kontakt-section button {
+  padding: 12px;
+  border: none;
+  background-color: #1A3C40;
+  color: #FAF7F4;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.kontakt-section button:hover {
+  background-color: #F2C14E;
+  color: #333;
+}
+
+/* Stopka */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #2C3A37;
+  color: #FAF7F4;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .hero-image {
+    border-bottom-right-radius: 0;
+  }
+
+  .main-nav {
+    flex-direction: row;
+  }
+
+  .main-nav ul {
+    flex-direction: row;
+  }
+
+  .product-item {
+    flex-direction: column;
+  }
+
+  .product-item.reverse {
+    flex-direction: column;
+  }
+}
