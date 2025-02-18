@@ -1,36 +1,42 @@
-// Smooth Scroll - płynne przewijanie po kliknięciu w linki z kotwicami
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
+document.addEventListener('DOMContentLoaded', function() {
+  // Funkcjonalność zakładek w sekcji produktów
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const tab = this.getAttribute('data-tab');
+      // Usuń klasę 'active' ze wszystkich przycisków i treści
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+      // Aktywuj kliknięty przycisk i odpowiadającą treść
+      this.classList.add('active');
+      document.getElementById(tab).classList.add('active');
     });
   });
-});
 
-// Intersection Observer - dodaje klasę fade-in, gdy sekcja wchodzi w widoczny obszar
-const faders = document.querySelectorAll('section');
-const appearOptions = {
-  threshold: 0.3
-};
+  // Funkcjonalność sliderów dla każdej karty produktu
+  const sliders = document.querySelectorAll('.slider');
+  sliders.forEach(slider => {
+    const slides = slider.querySelectorAll('.slide');
+    let currentIndex = 0;
+    const prevBtn = slider.querySelector('.prev');
+    const nextBtn = slider.querySelector('.next');
 
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('fade-in');
-      observer.unobserve(entry.target);
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
     }
+
+    prevBtn.addEventListener('click', function() {
+      currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+      showSlide(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', function() {
+      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+      showSlide(currentIndex);
+    });
   });
-}, appearOptions);
-
-faders.forEach(section => {
-  appearOnScroll.observe(section);
-});
-
-// Inicjalizacja Vanilla Tilt dla efektu 3D na kafelkach projektów
-VanillaTilt.init(document.querySelectorAll(".project-tile"), {
-  max: 15,
-  speed: 400,
-  glare: true,
-  "max-glare": 0.3,
 });
