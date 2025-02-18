@@ -2,122 +2,488 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Artysty Multimedialnego - GORDON</title>
-  <!-- Google Fonts: Playfair Display (nagłówki) + Montserrat (tekst) -->
+  <title>TWOOD design - Meble z litego drewna</title>
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <!-- FontAwesome CDN dla ikon -->
+  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <!-- Vanilla Tilt JS CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js" defer></script>
+  <link rel="stylesheet" href="./assets/css/styles.css">
   <!-- Custom JS -->
-  <script src="assets/js/scripts.js" defer></script>
+  <script src="./assets/js/scripts.js" defer></script>
 </head>
 <body>
-  <!-- HERO SECTION -->
+  <!-- HEADER SECTION -->
   <section id="hero">
-    <!-- Użycie elementu <picture> dla optymalizacji obrazu -->
     <picture>
-      <!-- Umieść tutaj wersję WebP obrazu tła (assets/images/hero-bg.webp) -->
-      <source srcset="assets/images/hero-bg.webp" type="image/webp">
-      <!-- Fallback: obraz JPG (assets/images/hero-bg.jpg) -->
-      <img src="assets/images/hero-bg.jpg" alt="Tło Hero" class="hero-bg">
+      <!-- Zalecany rozmiar zdjęcia: 1920x1080px -->
+      <source srcset="./assets/images/hero-bg.webp" type="image/webp">
+      <img src="./assets/images/hero-bg.jpg" alt="Tło Hero" class="hero-bg">
     </picture>
-    <div class="hero-overlay">
-      <div class="hero-content">
-        <p class="subtitle">Multimedia Artist</p>
-        <h1 class="main-header">
-          GORDON
-          <!-- Element do animacji podkreślenia -->
-          <span class="underline-animation"></span>
-        </h1>
-        <a href="#contact" class="cta-button">WORK WITH ME</a>
-      </div>
+    <div class="hero-content">
+      <h1 class="main-header">TWOOD design</h1>
+      <a href="#products" class="cta-button">Nasze Produkty</a>
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about">
-    <div class="container about-container">
-      <div class="about-image">
-        <!-- Wstaw swoje zdjęcie (avatar) do folderu assets/images/avatar.png -->
-        <img src="assets/images/avatar.png" alt="Avatar Artysty">
-      </div>
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>
-          A multimedia artist who brings nature and technology together to create stunning visual experiences. Let's have a chat.
-          <!-- Tekst można zastąpić dokładną treścią z screenu 2 -->
-        </p>
-      </div>
+  <!-- PRODUCTS SECTION (zakładki) -->
+  <section id="products">
+    <div class="products-tabs">
+      <button class="tab-button active" data-tab="stoly">Stoły</button>
+      <button class="tab-button" data-tab="stoliki">Stoliki kawowe</button>
+      <button class="tab-button" data-tab="zegary">Zegary</button>
+      <button class="tab-button" data-tab="inne">Inne</button>
     </div>
-  </section>
-
-  <!-- PROJECTS SECTION -->
-  <section id="projects">
-    <div class="container projects-grid">
-      <!-- Projekt 1 -->
-      <div class="project-tile" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
-        <picture>
-          <!-- Umieść wersję WebP (assets/images/project-1.webp) -->
-          <source srcset="assets/images/project-1.webp" type="image/webp">
-          <!-- Fallback: JPG -->
-          <img src="assets/images/project-1.jpg" alt="Fashion Forward">
-        </picture>
-        <div class="project-overlay">
-          <h3>Fashion Forward</h3>
-          <div class="project-icons">
-            <!-- Ikony ekologiczne (FontAwesome) -->
-            <i class="fas fa-leaf"></i>
-            <i class="fas fa-recycle"></i>
+    <div class="tabs-container">
+      <!-- Tab: Stoły -->
+      <div class="tab-content active" id="stoly">
+        <div class="products-grid">
+          <!-- 6 ofert – każdy produkt zawiera slider z 3 zdjęciami -->
+          <!-- Produkt 1 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/stoly-1a.jpg" alt="Stół dębowy" class="slide active">
+                <img src="./assets/images/stoly-1b.jpg" alt="Stół dębowy" class="slide">
+                <img src="./assets/images/stoly-1c.jpg" alt="Stół dębowy" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Stół dębowy</p>
+              <p class="product-price">Cena: 1200 zł</p>
+            </div>
           </div>
-          <!-- Tekst "$50 off" z pseudo-elementem ::after z animowaną obwódką -->
-          <span class="discount">$50 off</span>
+          <!-- Produkt 2 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/stoly-2a.jpg" alt="Stół jesionowy" class="slide active">
+                <img src="./assets/images/stoly-2b.jpg" alt="Stół jesionowy" class="slide">
+                <img src="./assets/images/stoly-2c.jpg" alt="Stół jesionowy" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Stół jesionowy</p>
+              <p class="product-price">Cena: 1500 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 3 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/stoly-3a.jpg" alt="Stół sosnowy" class="slide active">
+                <img src="./assets/images/stoly-3b.jpg" alt="Stół sosnowy" class="slide">
+                <img src="./assets/images/stoly-3c.jpg" alt="Stół sosnowy" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Stół sosnowy</p>
+              <p class="product-price">Cena: 900 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 4 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/stoly-4a.jpg" alt="Stół dębowy premium" class="slide active">
+                <img src="./assets/images/stoly-4b.jpg" alt="Stół dębowy premium" class="slide">
+                <img src="./assets/images/stoly-4c.jpg" alt="Stół dębowy premium" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Stół dębowy premium</p>
+              <p class="product-price">Cena: 2000 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 5 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/stoly-5a.jpg" alt="Stół industrialny" class="slide active">
+                <img src="./assets/images/stoly-5b.jpg" alt="Stół industrialny" class="slide">
+                <img src="./assets/images/stoly-5c.jpg" alt="Stół industrialny" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Stół industrialny</p>
+              <p class="product-price">Cena: 1800 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 6 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/stoly-6a.jpg" alt="Stół minimalistyczny" class="slide active">
+                <img src="./assets/images/stoly-6b.jpg" alt="Stół minimalistyczny" class="slide">
+                <img src="./assets/images/stoly-6c.jpg" alt="Stół minimalistyczny" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Stół minimalistyczny</p>
+              <p class="product-price">Cena: 1100 zł</p>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- Projekt 2 -->
-      <div class="project-tile" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
-        <picture>
-          <!-- Umieść wersję WebP (assets/images/project-2.webp) -->
-          <source srcset="assets/images/project-2.webp" type="image/webp">
-          <!-- Fallback: JPG -->
-          <img src="assets/images/project-2.jpg" alt="Health First">
-        </picture>
-        <div class="project-overlay">
-          <h3>Health First</h3>
-          <div class="project-icons">
-            <i class="fas fa-leaf"></i>
-            <i class="fas fa-recycle"></i>
+      <!-- Tab: Stoliki kawowe -->
+      <div class="tab-content" id="stoliki">
+        <div class="products-grid">
+          <!-- 6 ofert – przykładowe produkty -->
+          <!-- Produkt 1 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/stoliki-1a.jpg" alt="Stolik kawowy dębowy" class="slide active">
+                <img src="./assets/images/stoliki-1b.jpg" alt="Stolik kawowy dębowy" class="slide">
+                <img src="./assets/images/stoliki-1c.jpg" alt="Stolik kawowy dębowy" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Stolik kawowy dębowy</p>
+              <p class="product-price">Cena: 500 zł</p>
+            </div>
           </div>
-          <span class="discount">$50 off</span>
+          <!-- Produkt 2 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/stoliki-2a.jpg" alt="Stolik kawowy sosnowy" class="slide active">
+                <img src="./assets/images/stoliki-2b.jpg" alt="Stolik kawowy sosnowy" class="slide">
+                <img src="./assets/images/stoliki-2c.jpg" alt="Stolik kawowy sosnowy" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Stolik kawowy sosnowy</p>
+              <p class="product-price">Cena: 400 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 3 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/stoliki-3a.jpg" alt="Stolik nowoczesny" class="slide active">
+                <img src="./assets/images/stoliki-3b.jpg" alt="Stolik nowoczesny" class="slide">
+                <img src="./assets/images/stoliki-3c.jpg" alt="Stolik nowoczesny" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Stolik nowoczesny</p>
+              <p class="product-price">Cena: 550 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 4 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/stoliki-4a.jpg" alt="Stolik vintage" class="slide active">
+                <img src="./assets/images/stoliki-4b.jpg" alt="Stolik vintage" class="slide">
+                <img src="./assets/images/stoliki-4c.jpg" alt="Stolik vintage" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Stolik vintage</p>
+              <p class="product-price">Cena: 600 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 5 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/stoliki-5a.jpg" alt="Stolik rustykalny" class="slide active">
+                <img src="./assets/images/stoliki-5b.jpg" alt="Stolik rustykalny" class="slide">
+                <img src="./assets/images/stoliki-5c.jpg" alt="Stolik rustykalny" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Stolik rustykalny</p>
+              <p class="product-price">Cena: 480 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 6 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/stoliki-6a.jpg" alt="Stolik designerski" class="slide active">
+                <img src="./assets/images/stoliki-6b.jpg" alt="Stolik designerski" class="slide">
+                <img src="./assets/images/stoliki-6c.jpg" alt="Stolik designerski" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Stolik designerski</p>
+              <p class="product-price">Cena: 650 zł</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tab: Zegary -->
+      <div class="tab-content" id="zegary">
+        <div class="products-grid">
+          <!-- 6 ofert – przykładowe produkty -->
+          <!-- Produkt 1 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/zegary-1a.jpg" alt="Zegar klasyczny" class="slide active">
+                <img src="./assets/images/zegary-1b.jpg" alt="Zegar klasyczny" class="slide">
+                <img src="./assets/images/zegary-1c.jpg" alt="Zegar klasyczny" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Zegar drewniany klasyczny</p>
+              <p class="product-price">Cena: 300 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 2 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/zegary-2a.jpg" alt="Zegar nowoczesny" class="slide active">
+                <img src="./assets/images/zegary-2b.jpg" alt="Zegar nowoczesny" class="slide">
+                <img src="./assets/images/zegary-2c.jpg" alt="Zegar nowoczesny" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Zegar nowoczesny</p>
+              <p class="product-price">Cena: 350 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 3 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/zegary-3a.jpg" alt="Zegar designerski" class="slide active">
+                <img src="./assets/images/zegary-3b.jpg" alt="Zegar designerski" class="slide">
+                <img src="./assets/images/zegary-3c.jpg" alt="Zegar designerski" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Zegar designerski</p>
+              <p class="product-price">Cena: 400 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 4 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/zegary-4a.jpg" alt="Zegar retro" class="slide active">
+                <img src="./assets/images/zegary-4b.jpg" alt="Zegar retro" class="slide">
+                <img src="./assets/images/zegary-4c.jpg" alt="Zegar retro" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Zegar retro</p>
+              <p class="product-price">Cena: 320 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 5 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/zegary-5a.jpg" alt="Zegar minimalistyczny" class="slide active">
+                <img src="./assets/images/zegary-5b.jpg" alt="Zegar minimalistyczny" class="slide">
+                <img src="./assets/images/zegary-5c.jpg" alt="Zegar minimalistyczny" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Zegar minimalistyczny</p>
+              <p class="product-price">Cena: 280 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 6 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/zegary-6a.jpg" alt="Zegar elegancki" class="slide active">
+                <img src="./assets/images/zegary-6b.jpg" alt="Zegar elegancki" class="slide">
+                <img src="./assets/images/zegary-6c.jpg" alt="Zegar elegancki" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Zegar elegancki</p>
+              <p class="product-price">Cena: 360 zł</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tab: Inne -->
+      <div class="tab-content" id="inne">
+        <div class="products-grid">
+          <!-- 6 ofert – przykładowe produkty -->
+          <!-- Produkt 1 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/inne-1a.jpg" alt="Mebel dekoracyjny" class="slide active">
+                <img src="./assets/images/inne-1b.jpg" alt="Mebel dekoracyjny" class="slide">
+                <img src="./assets/images/inne-1c.jpg" alt="Mebel dekoracyjny" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Mebel dekoracyjny</p>
+              <p class="product-price">Cena: 800 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 2 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/inne-2a.jpg" alt="Mebel nowoczesny" class="slide active">
+                <img src="./assets/images/inne-2b.jpg" alt="Mebel nowoczesny" class="slide">
+                <img src="./assets/images/inne-2c.jpg" alt="Mebel nowoczesny" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Mebel nowoczesny</p>
+              <p class="product-price">Cena: 950 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 3 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/inne-3a.jpg" alt="Mebel klasyczny" class="slide active">
+                <img src="./assets/images/inne-3b.jpg" alt="Mebel klasyczny" class="slide">
+                <img src="./assets/images/inne-3c.jpg" alt="Mebel klasyczny" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Mebel klasyczny</p>
+              <p class="product-price">Cena: 870 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 4 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/inne-4a.jpg" alt="Mebel designerski" class="slide active">
+                <img src="./assets/images/inne-4b.jpg" alt="Mebel designerski" class="slide">
+                <img src="./assets/images/inne-4c.jpg" alt="Mebel designerski" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Mebel designerski</p>
+              <p class="product-price">Cena: 990 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 5 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/inne-5a.jpg" alt="Mebel rustykalny" class="slide active">
+                <img src="./assets/images/inne-5b.jpg" alt="Mebel rustykalny" class="slide">
+                <img src="./assets/images/inne-5c.jpg" alt="Mebel rustykalny" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Mebel rustykalny</p>
+              <p class="product-price">Cena: 850 zł</p>
+            </div>
+          </div>
+          <!-- Produkt 6 -->
+          <div class="product-card">
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/images/inne-6a.jpg" alt="Mebel elegancki" class="slide active">
+                <img src="./assets/images/inne-6b.jpg" alt="Mebel elegancki" class="slide">
+                <img src="./assets/images/inne-6c.jpg" alt="Mebel elegancki" class="slide">
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+            <div class="product-info">
+              <p class="product-desc">Mebel elegancki</p>
+              <p class="product-price">Cena: 920 zł</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- O NAS SECTION -->
+  <section id="about" class="about-section">
+    <!-- Aby zmienić tło, podmień plik about-bg.jpg w folderze assets/images -->
+    <div class="about-content">
+      <h2>O nas</h2>
+      <p>
+        Cześć, jesteśmy Twood Design ! 😊 Tworzymy meble z litego drewna, które sprawiają że czujesz się jak w domu!<br>
+        • Projekty na zamówienie – wykonamy każdy pomysł<br>
+        • Zobacz nasze aktualne produkty poniżej<br>
+        • Darmowa wycena – bez zobowiązań!<br>
+        Skontaktuj się z nami – chętnie pomożemy! 📞
+      </p>
+    </div>
+  </section>
+
+  <!-- KONTAKT SECTION -->
   <section id="contact">
-    <div class="container contact-container">
-      <h2>LET'S CONTACT ME</h2>
-      <form class="contact-form">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" rows="5" placeholder="Message" required></textarea>
-        <button type="submit" class="cta-button">Send Message</button>
-      </form>
-      <div class="social-media">
-        <!-- Przykładowe SVG ikony – zastąp zawartość własnymi SVG -->
-        <a href="#" aria-label="Facebook">
-          <svg width="24" height="24" fill="currentColor"><!-- SVG content --></svg>
-        </a>
-        <a href="#" aria-label="Twitter">
-          <svg width="24" height="24" fill="currentColor"><!-- SVG content --></svg>
-        </a>
-        <a href="#" aria-label="Instagram">
-          <svg width="24" height="24" fill="currentColor"><!-- SVG content --></svg>
-        </a>
+    <div class="contact-container">
+      <h2>Skontaktuj się z nami!</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>782 138 372</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>twood.design@wp.pl</span>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-facebook-f"></i>
+          <a href="https://www.facebook.com/profile.php?id=61567010481184" target="_blank">Facebook</a>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-instagram"></i>
+          <a href="https://www.instagram.com/twood.design/" target="_blank">Instagram</a>
+        </div>
       </div>
     </div>
   </section>
