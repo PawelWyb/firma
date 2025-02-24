@@ -2,8 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TWOOD design - Meble z litego drewna</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -11,12 +10,24 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <!-- Custom JS -->
-  <script src="./assets/js/scripts.js" defer></script>
 </head>
 <body>
+  <!-- TOP NAVIGATION BAR -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="./assets/images/logo.png" alt="Logo TWOOD design">
+      </div>
+      <ul class="nav-links">
+        <li><a href="#contact">Kontakt</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="personalizuj.html">Personalizuj</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- HEADER SECTION -->
-  <section id="hero">
+  <header id="hero">
     <picture>
       <!-- Zalecany rozmiar zdjęcia: 1920x1080px -->
       <source srcset="./assets/images/hero-bg.webp" type="image/webp">
@@ -25,22 +36,26 @@
     <div class="hero-content">
       <h1 class="main-header">TWOOD design</h1>
       <a href="#products" class="cta-button">Nasze Produkty</a>
+      <div class="social-links">
+        <a href="https://www.instagram.com/twood.design/" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@twooddesign" target="_blank" class="social-icon tiktok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61567010481184" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+      </div>
     </div>
-  </section>
+  </header>
 
-  <!-- PRODUCTS SECTION (zakładki) -->
+  <!-- PRODUCTS SECTION -->
   <section id="products">
     <div class="products-tabs">
       <button class="tab-button active" data-tab="stoly">Stoły</button>
       <button class="tab-button" data-tab="stoliki">Stoliki kawowe</button>
       <button class="tab-button" data-tab="zegary">Zegary</button>
-      <button class="tab-button" data-tab="inne">Inne</button>
+      <button class="tab-button" data-tab="akcesoria">Akcesoria i Dodatki</button>
     </div>
     <div class="tabs-container">
       <!-- Tab: Stoły -->
       <div class="tab-content active" id="stoly">
         <div class="products-grid">
-          <!-- 6 ofert – każdy produkt zawiera slider z 3 zdjęciami -->
           <!-- Produkt 1 -->
           <div class="product-card">
             <div class="slider">
@@ -142,7 +157,6 @@
       <!-- Tab: Stoliki kawowe -->
       <div class="tab-content" id="stoliki">
         <div class="products-grid">
-          <!-- 6 ofert – przykładowe produkty -->
           <!-- Produkt 1 -->
           <div class="product-card">
             <div class="slider">
@@ -244,7 +258,6 @@
       <!-- Tab: Zegary -->
       <div class="tab-content" id="zegary">
         <div class="products-grid">
-          <!-- 6 ofert – przykładowe produkty -->
           <!-- Produkt 1 -->
           <div class="product-card">
             <div class="slider">
@@ -257,7 +270,7 @@
               <button class="next">&#10095;</button>
             </div>
             <div class="product-info">
-              <p class="product-desc">Zegar drewniany klasyczny</p>
+              <p class="product-desc">Zegar klasyczny</p>
               <p class="product-price">Cena: 300 zł</p>
             </div>
           </div>
@@ -343,104 +356,103 @@
           </div>
         </div>
       </div>
-      <!-- Tab: Inne -->
-      <div class="tab-content" id="inne">
+      <!-- Tab: Akcesoria i Dodatki -->
+      <div class="tab-content" id="akcesoria">
         <div class="products-grid">
-          <!-- 6 ofert – przykładowe produkty -->
           <!-- Produkt 1 -->
           <div class="product-card">
             <div class="slider">
               <div class="slides">
-                <img src="./assets/images/inne-1a.jpg" alt="Mebel dekoracyjny" class="slide active">
-                <img src="./assets/images/inne-1b.jpg" alt="Mebel dekoracyjny" class="slide">
-                <img src="./assets/images/inne-1c.jpg" alt="Mebel dekoracyjny" class="slide">
+                <img src="./assets/images/akcesoria-1a.jpg" alt="Akcesoria 1" class="slide active">
+                <img src="./assets/images/akcesoria-1b.jpg" alt="Akcesoria 1" class="slide">
+                <img src="./assets/images/akcesoria-1c.jpg" alt="Akcesoria 1" class="slide">
               </div>
               <button class="prev">&#10094;</button>
               <button class="next">&#10095;</button>
             </div>
             <div class="product-info">
-              <p class="product-desc">Mebel dekoracyjny</p>
-              <p class="product-price">Cena: 800 zł</p>
+              <p class="product-desc">Akcesoria 1</p>
+              <p class="product-price">Cena: 200 zł</p>
             </div>
           </div>
           <!-- Produkt 2 -->
           <div class="product-card">
             <div class="slider">
               <div class="slides">
-                <img src="./assets/images/inne-2a.jpg" alt="Mebel nowoczesny" class="slide active">
-                <img src="./assets/images/inne-2b.jpg" alt="Mebel nowoczesny" class="slide">
-                <img src="./assets/images/inne-2c.jpg" alt="Mebel nowoczesny" class="slide">
+                <img src="./assets/images/akcesoria-2a.jpg" alt="Akcesoria 2" class="slide active">
+                <img src="./assets/images/akcesoria-2b.jpg" alt="Akcesoria 2" class="slide">
+                <img src="./assets/images/akcesoria-2c.jpg" alt="Akcesoria 2" class="slide">
               </div>
               <button class="prev">&#10094;</button>
               <button class="next">&#10095;</button>
             </div>
             <div class="product-info">
-              <p class="product-desc">Mebel nowoczesny</p>
-              <p class="product-price">Cena: 950 zł</p>
+              <p class="product-desc">Akcesoria 2</p>
+              <p class="product-price">Cena: 250 zł</p>
             </div>
           </div>
           <!-- Produkt 3 -->
           <div class="product-card">
             <div class="slider">
               <div class="slides">
-                <img src="./assets/images/inne-3a.jpg" alt="Mebel klasyczny" class="slide active">
-                <img src="./assets/images/inne-3b.jpg" alt="Mebel klasyczny" class="slide">
-                <img src="./assets/images/inne-3c.jpg" alt="Mebel klasyczny" class="slide">
+                <img src="./assets/images/akcesoria-3a.jpg" alt="Akcesoria 3" class="slide active">
+                <img src="./assets/images/akcesoria-3b.jpg" alt="Akcesoria 3" class="slide">
+                <img src="./assets/images/akcesoria-3c.jpg" alt="Akcesoria 3" class="slide">
               </div>
               <button class="prev">&#10094;</button>
               <button class="next">&#10095;</button>
             </div>
             <div class="product-info">
-              <p class="product-desc">Mebel klasyczny</p>
-              <p class="product-price">Cena: 870 zł</p>
+              <p class="product-desc">Akcesoria 3</p>
+              <p class="product-price">Cena: 300 zł</p>
             </div>
           </div>
           <!-- Produkt 4 -->
           <div class="product-card">
             <div class="slider">
               <div class="slides">
-                <img src="./assets/images/inne-4a.jpg" alt="Mebel designerski" class="slide active">
-                <img src="./assets/images/inne-4b.jpg" alt="Mebel designerski" class="slide">
-                <img src="./assets/images/inne-4c.jpg" alt="Mebel designerski" class="slide">
+                <img src="./assets/images/akcesoria-4a.jpg" alt="Akcesoria 4" class="slide active">
+                <img src="./assets/images/akcesoria-4b.jpg" alt="Akcesoria 4" class="slide">
+                <img src="./assets/images/akcesoria-4c.jpg" alt="Akcesoria 4" class="slide">
               </div>
               <button class="prev">&#10094;</button>
               <button class="next">&#10095;</button>
             </div>
             <div class="product-info">
-              <p class="product-desc">Mebel designerski</p>
-              <p class="product-price">Cena: 990 zł</p>
+              <p class="product-desc">Akcesoria 4</p>
+              <p class="product-price">Cena: 350 zł</p>
             </div>
           </div>
           <!-- Produkt 5 -->
           <div class="product-card">
             <div class="slider">
               <div class="slides">
-                <img src="./assets/images/inne-5a.jpg" alt="Mebel rustykalny" class="slide active">
-                <img src="./assets/images/inne-5b.jpg" alt="Mebel rustykalny" class="slide">
-                <img src="./assets/images/inne-5c.jpg" alt="Mebel rustykalny" class="slide">
+                <img src="./assets/images/akcesoria-5a.jpg" alt="Akcesoria 5" class="slide active">
+                <img src="./assets/images/akcesoria-5b.jpg" alt="Akcesoria 5" class="slide">
+                <img src="./assets/images/akcesoria-5c.jpg" alt="Akcesoria 5" class="slide">
               </div>
               <button class="prev">&#10094;</button>
               <button class="next">&#10095;</button>
             </div>
             <div class="product-info">
-              <p class="product-desc">Mebel rustykalny</p>
-              <p class="product-price">Cena: 850 zł</p>
+              <p class="product-desc">Akcesoria 5</p>
+              <p class="product-price">Cena: 400 zł</p>
             </div>
           </div>
           <!-- Produkt 6 -->
           <div class="product-card">
             <div class="slider">
               <div class="slides">
-                <img src="./assets/images/inne-6a.jpg" alt="Mebel elegancki" class="slide active">
-                <img src="./assets/images/inne-6b.jpg" alt="Mebel elegancki" class="slide">
-                <img src="./assets/images/inne-6c.jpg" alt="Mebel elegancki" class="slide">
+                <img src="./assets/images/akcesoria-6a.jpg" alt="Akcesoria 6" class="slide active">
+                <img src="./assets/images/akcesoria-6b.jpg" alt="Akcesoria 6" class="slide">
+                <img src="./assets/images/akcesoria-6c.jpg" alt="Akcesoria 6" class="slide">
               </div>
               <button class="prev">&#10094;</button>
               <button class="next">&#10095;</button>
             </div>
             <div class="product-info">
-              <p class="product-desc">Mebel elegancki</p>
-              <p class="product-price">Cena: 920 zł</p>
+              <p class="product-desc">Akcesoria 6</p>
+              <p class="product-price">Cena: 450 zł</p>
             </div>
           </div>
         </div>
@@ -450,11 +462,10 @@
 
   <!-- O NAS SECTION -->
   <section id="about" class="about-section">
-    <!-- Aby zmienić tło, podmień plik about-bg.jpg w folderze assets/images -->
     <div class="about-content">
       <h2>O nas</h2>
       <p>
-        Cześć, jesteśmy Twood Design ! 😊 Tworzymy meble z litego drewna, które sprawiają że czujesz się jak w domu!<br>
+        Cześć, jesteśmy Twood Design! 😊 Tworzymy meble z litego drewna, które sprawiają, że czujesz się jak w domu!<br>
         • Projekty na zamówienie – wykonamy każdy pomysł<br>
         • Zobacz nasze aktualne produkty poniżej<br>
         • Darmowa wycena – bez zobowiązań!<br>
@@ -487,5 +498,18 @@
       </div>
     </div>
   </section>
+
+  <!-- MODAL DLA PEŁNOEKRANOWEGO PODGLĄDU ZDJĘCIA -->
+  <div id="modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content">
+      <button class="modal-prev">&#10094;</button>
+      <img src="" alt="Modal Image" class="modal-img">
+      <button class="modal-next">&#10095;</button>
+    </div>
+  </div>
+
+  <!-- Custom JS -->
+  <script src="./assets/js/scripts.js"></script>
 </body>
 </html>
