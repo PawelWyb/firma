@@ -61,7 +61,7 @@ h1, h2, h3 {
 #hero {
   position: relative;
   height: 100vh;
-  margin-top: 70px; /* dla miejsca pod nawigacją */
+  margin-top: 70px; /* miejsce pod nawigacją */
   overflow: hidden;
 }
 .hero-bg {
@@ -135,6 +135,13 @@ h1, h2, h3 {
   max-width: 1200px;
   margin: 0 auto;
 }
+/* Ukrywanie zawartości nieaktywnej zakładki */
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
 .products-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -164,7 +171,7 @@ h1, h2, h3 {
 .slide {
   display: none;
   width: 100%;
-  aspect-ratio: 1/1;  /* Wymuszamy kwadratowy format */
+  aspect-ratio: 1/1;  /* Kwadratowy format */
   object-fit: cover;
   transition: opacity 0.5s ease;
 }
@@ -382,6 +389,7 @@ h1, h2, h3 {
 }
 .drewno-card img {
   width: 100%;
+  aspect-ratio: 1/1; /* Wymuszony kwadrat */
   object-fit: cover;
 }
 .drewno-card p {
