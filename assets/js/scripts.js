@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Zakładki w sekcji produktów
+  // Zakładki w sekcji produktów – tylko aktywny kontener będzie widoczny
   const tabButtons = document.querySelectorAll('.tab-button');
   const tabContents = document.querySelectorAll('.tab-content');
 
