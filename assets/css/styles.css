@@ -40,14 +40,26 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 .logo img {
-  height: 60px; /* Zwiększone logo */
+  height: 120px; /* Powiększone logo */
+  margin-right: 10px;
+}
+.logo-text {
+  font-family: 'Gambetta Variable', sans-serif;
+  font-size: 2rem;
+  color: var(--primary-color);
 }
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 20px;
   align-items: center;
 }
 .nav-links li a {
@@ -61,7 +73,7 @@ h1, h2, h3 {
 #hero {
   position: relative;
   height: 100vh;
-  margin-top: 70px; /* miejsce pod nawigacją */
+  margin-top: 130px; /* miejsce pod nawigacją (zwiększone dla większego logo) */
   overflow: hidden;
 }
 .hero-bg {
@@ -99,7 +111,7 @@ h1, h2, h3 {
   margin-top: 15px;
 }
 .social-icon {
-  font-size: 2rem; /* Powiększone ikony */
+  font-size: 2.5rem; /* Jeszcze większe ikony */
   margin: 0 10px;
   transition: transform 0.3s;
 }
@@ -135,7 +147,7 @@ h1, h2, h3 {
   max-width: 1200px;
   margin: 0 auto;
 }
-/* Ukrywanie zawartości nieaktywnej zakładki */
+/* Ukrywanie nieaktywnej zawartości */
 .tab-content {
   display: none;
 }
@@ -259,34 +271,56 @@ h1, h2, h3 {
 .about-content {
   max-width: 800px;
   margin: 0 auto;
+  background: rgba(0,0,0,0.5); /* opcjonalnie dla lepszej czytelności tekstu */
+  padding: 20px;
+  border-radius: 8px;
 }
 
-/* KONTAKT SECTION */
-#contact {
-  background-color: var(--contact-bg);
-  padding: 40px 20px;
+/* ODNOŚNIKI DO ZAKŁADEK */
+.explore-section {
+  padding: 60px 20px;
   text-align: center;
+  background: var(--secondary-color);
 }
-.contact-container {
-  max-width: 800px;
+.explore-section h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+.explore-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 1200px;
   margin: 0 auto;
 }
-.contact-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
+@media (min-width: 768px) {
+  .explore-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.2rem;
+.explore-card {
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
 }
-.contact-item a {
+.explore-card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.explore-card p {
+  margin: 15px 0;
+}
+.explore-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--primary-color);
+  color: #fff;
   text-decoration: none;
-  color: var(--primary-color);
+  border-radius: 4px;
+  font-weight: bold;
 }
 
 /* BLOG PAGE */
@@ -313,11 +347,13 @@ h1, h2, h3 {
   border: 1px solid #ddd;
   background: #fff;
   padding: 10px;
+  border-radius: 8px;
 }
 .blog-card img {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
+  border-radius: 4px;
 }
 .blog-card h2 {
   margin-top: 10px;
@@ -351,10 +387,13 @@ h1, h2, h3 {
   align-items: center;
   gap: 20px;
   padding: 10px;
+  border-radius: 8px;
 }
 .personalizuj-card img {
   width: 40%;
+  aspect-ratio: 1/1;
   object-fit: cover;
+  border-radius: 4px;
 }
 .card-text {
   text-align: left;
@@ -386,11 +425,13 @@ h1, h2, h3 {
   background: #fff;
   padding: 10px;
   text-align: center;
+  border-radius: 8px;
 }
 .drewno-card img {
   width: 100%;
-  aspect-ratio: 1/1; /* Wymuszony kwadrat */
+  aspect-ratio: 1/1; /* Kwadrat */
   object-fit: cover;
+  border-radius: 4px;
 }
 .drewno-card p {
   margin-top: 10px;
@@ -456,4 +497,18 @@ h1, h2, h3 {
 }
 .contact-form button:hover {
   background-color: var(--accent-color);
+}
+
+/* Responsywność dodatkowo */
+@media (max-width: 480px) {
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .logo img {
+    height: 100px;
+  }
+  .logo-text {
+    font-size: 1.5rem;
+  }
 }
