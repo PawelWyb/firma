@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Zakładki w sekcji produktów – tylko aktywny kontener będzie widoczny
+  // Zakładki w sekcji produktów – tylko aktywny kontener
   const tabButtons = document.querySelectorAll('.tab-button');
   const tabContents = document.querySelectorAll('.tab-content');
 
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Slider dla każdej karty produktu
+  // Slider dla kart produktów
   const sliders = document.querySelectorAll('.slider');
   sliders.forEach(slider => {
     const slides = slider.querySelectorAll('.slide');
@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
       showSlide(currentIndex);
     });
 
-    // Po kliknięciu na zdjęcie otwórz modal
     slides.forEach((slide, index) => {
       slide.addEventListener('click', function(e) {
         openModal(slides, index);
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Modal dla pełnoekranowego podglądu zdjęcia
+  // Modal – pełnoekranowy podgląd zdjęcia
   const modal = document.getElementById('modal');
   const modalImg = modal.querySelector('.modal-img');
   const modalPrev = modal.querySelector('.modal-prev');
@@ -88,4 +87,31 @@ document.addEventListener('DOMContentLoaded', function() {
       closeModal();
     }
   });
+
+  // Zamknięcie modalu przez przesunięcie palcem w dół (dla urządzeń mobilnych)
+  let touchStartY = 0;
+  let touchEndY = 0;
+  modal.addEventListener('touchstart', function(e) {
+    touchStartY = e.changedTouches[0].screenY;
+  });
+  modal.addEventListener('touchend', function(e) {
+    touchEndY = e.changedTouches[0].screenY;
+    if (touchEndY - touchStartY > 100) {
+      closeModal();
+    }
+  });
+
+  // Dla urządzeń mobilnych – ukrywanie paska nawigacyjnego przy scrollowaniu (z zachowaniem logo)
+  if (window.innerWidth < 768) {
+    let prevScrollPos = window.pageYOffset;
+    window.addEventListener('scroll', function() {
+      let currentScrollPos = window.pageYOffset;
+      if (prevScrollPos < currentScrollPos && currentScrollPos > 100) {
+        document.querySelector('.top-nav').classList.add('hide');
+      } else {
+        document.querySelector('.top-nav').classList.remove('hide');
+      }
+      prevScrollPos = currentScrollPos;
+    });
+  }
 });
