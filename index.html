@@ -6,7 +6,7 @@
   <title>TWOOD design - Meble z litego drewna</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <!-- Dodajemy również czcionkę Gambetta Variable (umieść plik w assets/fonts lub podaj URL) -->
+  <!-- Gambetta Variable -->
   <style>
     @font-face {
       font-family: 'Gambetta Variable';
@@ -48,13 +48,11 @@
   <!-- HEADER SECTION -->
   <header id="hero">
     <picture>
-      <!-- Zalecany rozmiar zdjęcia: 1920x1080px -->
       <source srcset="./assets/images/hero-bg.webp" type="image/webp">
       <img src="./assets/images/hero-bg.jpg" alt="Tło Hero" class="hero-bg">
     </picture>
     <div class="hero-content">
       <h1 class="main-header">TWOOD design</h1>
-      <a href="#products" class="cta-button">Nasze Produkty</a>
       <div class="social-links">
         <a href="https://www.instagram.com/twood.design/" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@twooddesign" target="_blank" class="social-icon tiktok"><i class="fa-brands fa-tiktok"></i></a>
@@ -176,7 +174,7 @@
       <!-- Tab: Stoliki kawowe -->
       <div class="tab-content" id="stoliki">
         <div class="products-grid">
-          <!-- Analogicznie – 6 ofert -->
+          <!-- Produkt 1 -->
           <div class="product-card">
             <div class="slider">
               <div class="slides">
@@ -494,33 +492,33 @@
     </div>
   </section>
 
-  <!-- ODNOŚNIKI DO ZAKŁADEK -->
-  <section id="explore" class="explore-section">
-    <h2>Odkryj więcej</h2>
-    <div class="explore-grid">
-      <!-- Blog -->
-      <div class="explore-card">
-        <img src="./assets/images/blog-1.jpg" alt="Blog">
-        <p>Sprawdź nasze inspirujące blogi o meblach i designie.</p>
-        <a href="blog.html" class="explore-button">Przejdź do Bloga</a>
-      </div>
-      <!-- Personalizuj -->
-      <div class="explore-card">
-        <img src="./assets/images/personal-1.jpg" alt="Personalizuj">
-        <p>Dowiedz się, jak możesz spersonalizować swoje meble.</p>
-        <a href="personalizuj.html" class="explore-button">Personalizuj</a>
-      </div>
-      <!-- FAQ -->
-      <div class="explore-card">
-        <img src="./assets/images/rodzaj-drebna-1.jpg" alt="FAQ">
-        <p>Znajdź odpowiedzi na najczęściej zadawane pytania.</p>
-        <a href="faq.html" class="explore-button">Częste pytania</a>
-      </div>
+  <!-- SEKCJE ODDZIELNE: BLOG, PERSONALIZUJ, FAQ -->
+  <section id="blog-section" class="explore-section" style="background-image: url('./assets/images/blog-bg.jpg');">
+    <div class="explore-overlay">
+      <h2>Blog</h2>
+      <p>Przeczytaj nasze najnowsze wpisy o meblach i designie.</p>
+      <a href="blog.html" class="explore-button">Przejdź do Bloga</a>
+    </div>
+  </section>
+
+  <section id="personalizuj-section" class="explore-section" style="background-image: url('./assets/images/personalizuj-bg.jpg');">
+    <div class="explore-overlay">
+      <h2>Personalizuj</h2>
+      <p>Dowiedz się, jak możesz dostosować meble do swoich potrzeb.</p>
+      <a href="personalizuj.html" class="explore-button">Personalizuj</a>
+    </div>
+  </section>
+
+  <section id="faq-section" class="explore-section" style="background-image: url('./assets/images/faq-bg.jpg');">
+    <div class="explore-overlay">
+      <h2>Częste pytania</h2>
+      <p>Znajdź odpowiedzi na najczęściej zadawane pytania naszych klientów.</p>
+      <a href="faq.html" class="explore-button">Częste pytania</a>
     </div>
   </section>
 
   <!-- KONTAKT SECTION -->
-  <section id="contact">
+  <section id="contact" class="contact-section" style="background-image: url('./assets/images/contact-bg.jpg');">
     <div class="contact-container">
       <h2>Skontaktuj się z nami!</h2>
       <div class="contact-info">
