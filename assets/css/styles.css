@@ -1,6 +1,6 @@
 /* CSS Variables */
 :root {
-  --primary-color: #2A4F3F;
+  --primary-color: #000000; /* Czarny odcień */
   --secondary-color: #F5F5F5;
   --accent-color: #DAA520;
   --contact-bg: #FFF5DB;
@@ -32,6 +32,7 @@ h1, h2, h3 {
   position: fixed;
   top: 0;
   z-index: 1000;
+  transition: top 0.3s;
 }
 .nav-container {
   max-width: 1200px;
@@ -73,7 +74,7 @@ h1, h2, h3 {
 #hero {
   position: relative;
   height: 100vh;
-  margin-top: 130px; /* miejsce pod nawigacją (zwiększone dla większego logo) */
+  margin-top: 140px;
   overflow: hidden;
 }
 .hero-bg {
@@ -94,24 +95,11 @@ h1, h2, h3 {
   font-size: 5rem;
   margin-bottom: 20px;
 }
-.cta-button {
-  display: inline-block;
-  padding: 12px 25px;
-  border: 2px solid #fff;
-  color: #fff;
-  text-decoration: none;
-  transition: background 0.3s, color 0.3s;
-  margin-bottom: 15px;
-}
-.cta-button:hover {
-  background: #fff;
-  color: var(--primary-color);
-}
 .social-links {
   margin-top: 15px;
 }
 .social-icon {
-  font-size: 2.5rem; /* Jeszcze większe ikony */
+  font-size: 3rem;
   margin: 0 10px;
   transition: transform 0.3s;
 }
@@ -133,7 +121,7 @@ h1, h2, h3 {
 .tab-button {
   background: none;
   border: 2px solid var(--primary-color);
-  padding: 15px 25px;  /* Większe przyciski */
+  padding: 15px 25px;
   margin: 0 8px;
   cursor: pointer;
   font-size: 1.1rem;
@@ -147,7 +135,6 @@ h1, h2, h3 {
   max-width: 1200px;
   margin: 0 auto;
 }
-/* Ukrywanie nieaktywnej zawartości */
 .tab-content {
   display: none;
 }
@@ -162,6 +149,11 @@ h1, h2, h3 {
 @media (min-width: 768px) {
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .tab-button {
+    margin: 5px;
   }
 }
 
@@ -183,7 +175,7 @@ h1, h2, h3 {
 .slide {
   display: none;
   width: 100%;
-  aspect-ratio: 1/1;  /* Kwadratowy format */
+  aspect-ratio: 1/1;
   object-fit: cover;
   transition: opacity 0.5s ease;
 }
@@ -271,51 +263,35 @@ h1, h2, h3 {
 .about-content {
   max-width: 800px;
   margin: 0 auto;
-  background: rgba(0,0,0,0.5); /* opcjonalnie dla lepszej czytelności tekstu */
+  background: rgba(0,0,0,0.5);
   padding: 20px;
   border-radius: 8px;
 }
 
-/* ODNOŚNIKI DO ZAKŁADEK */
+/* ODNOŚNIKI DO ZAKŁADEK (SEKCJE BLOG, PERSONALIZUJ, FAQ) */
 .explore-section {
-  padding: 60px 20px;
+  position: relative;
+  padding: 80px 20px;
+  color: #fff;
   text-align: center;
-  background: var(--secondary-color);
+  background-size: cover;
+  background-position: center;
 }
-.explore-section h2 {
-  margin-bottom: 40px;
-  font-size: 2rem;
+.explore-overlay {
+  background: rgba(0,0,0,0.4);
+  padding: 40px;
 }
-.explore-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+.explore-overlay h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
-@media (min-width: 768px) {
-  .explore-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.explore-card {
-  border: 1px solid #ddd;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-}
-.explore-card img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 4px;
-}
-.explore-card p {
-  margin: 15px 0;
+.explore-overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
 }
 .explore-button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 12px 25px;
   background: var(--primary-color);
   color: #fff;
   text-decoration: none;
@@ -323,119 +299,38 @@ h1, h2, h3 {
   font-weight: bold;
 }
 
-/* BLOG PAGE */
-.blog-page {
-  padding: 80px 20px;
+/* KONTAKT SECTION */
+.contact-section {
+  position: relative;
+  padding: 60px 20px;
+  color: var(--primary-color);
   text-align: center;
+  background-size: cover;
+  background-position: center;
 }
-.blog-page h1 {
-  margin-bottom: 40px;
-}
-.blog-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  max-width: 1200px;
+.contact-container {
+  max-width: 800px;
   margin: 0 auto;
-}
-@media (min-width: 768px) {
-  .blog-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.blog-card {
-  border: 1px solid #ddd;
-  background: #fff;
-  padding: 10px;
+  background: rgba(255,255,255,0.9);
+  padding: 20px;
   border-radius: 8px;
 }
-.blog-card img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 4px;
-}
-.blog-card h2 {
-  margin-top: 10px;
-  font-size: 1.1rem;
-}
-
-/* PERSONALIZUJ PAGE */
-.personalizuj-page {
-  padding: 80px 20px;
-  text-align: center;
-}
-.personalizuj-page h1 {
-  margin-bottom: 40px;
-}
-.personalizuj-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  margin-top: 20px;
 }
-@media (min-width: 768px) {
-  .personalizuj-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-.personalizuj-card {
-  border: 1px solid #ddd;
-  background: #fff;
+.contact-item {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 10px;
-  border-radius: 8px;
+  gap: 10px;
+  font-size: 1.2rem;
 }
-.personalizuj-card img {
-  width: 40%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 4px;
-}
-.card-text {
-  text-align: left;
-  padding: 10px;
-}
-
-/* RODZAJE DREWNA */
-.rodzaje-drewna {
-  padding: 40px 20px;
-  text-align: center;
-}
-.rodzaje-drewna h2 {
-  margin-bottom: 20px;
-}
-.drewno-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-@media (min-width: 768px) {
-  .drewno-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.drewno-card {
-  border: 1px solid #ddd;
-  background: #fff;
-  padding: 10px;
-  text-align: center;
-  border-radius: 8px;
-}
-.drewno-card img {
-  width: 100%;
-  aspect-ratio: 1/1; /* Kwadrat */
-  object-fit: cover;
-  border-radius: 4px;
-}
-.drewno-card p {
-  margin-top: 10px;
-  font-weight: bold;
+.contact-item a {
+  text-decoration: none;
+  color: var(--primary-color);
 }
 
 /* FAQ PAGE (accordion) */
@@ -467,7 +362,7 @@ h1, h2, h3 {
   margin-top: 5px;
 }
 
-/* CONTACT FORM SECTION (dla FAQ i Personalizuj) */
+/* CONTACT FORM SECTION */
 .contact-form-section {
   padding: 40px 20px;
   text-align: center;
@@ -499,7 +394,7 @@ h1, h2, h3 {
   background-color: var(--accent-color);
 }
 
-/* Responsywność dodatkowo */
+/* RESPONSYWNOŚĆ */
 @media (max-width: 480px) {
   .nav-links {
     flex-wrap: wrap;
@@ -510,5 +405,10 @@ h1, h2, h3 {
   }
   .logo-text {
     font-size: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .top-nav.hide {
+    top: -60px;
   }
 }
