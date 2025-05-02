@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Zakładki w sekcji produktów – tylko aktywny kontener
+  // Zakładki produktów
   const tabButtons = document.querySelectorAll('.tab-button');
   const tabContents = document.querySelectorAll('.tab-content');
 
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Slider dla kart produktów
+  // Slider produktów
   const sliders = document.querySelectorAll('.slider');
   sliders.forEach(slider => {
     const slides = slider.querySelectorAll('.slide');
@@ -22,9 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextBtn = slider.querySelector('.next');
 
     function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
     }
 
     prevBtn.addEventListener('click', function(e) {
@@ -46,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Modal – pełnoekranowy podgląd zdjęcia
+  // Modal
   const modal = document.getElementById('modal');
   const modalImg = modal.querySelector('.modal-img');
   const modalPrev = modal.querySelector('.modal-prev');
@@ -78,34 +76,27 @@ document.addEventListener('DOMContentLoaded', function() {
     modalImg.src = modalSlides[modalCurrentIndex];
   });
 
-  modalClose.addEventListener('click', function() {
-    closeModal();
-  });
-
+  modalClose.addEventListener('click', closeModal);
   modal.addEventListener('click', function(e) {
-    if(e.target === modal) {
-      closeModal();
-    }
+    if (e.target === modal) closeModal();
   });
 
-  // Zamknięcie modalu przez przesunięcie palcem w dół (dla urządzeń mobilnych)
+  // Swipe do zamknięcia modala (mobile)
   let touchStartY = 0;
-  let touchEndY = 0;
   modal.addEventListener('touchstart', function(e) {
     touchStartY = e.changedTouches[0].screenY;
   });
+  
   modal.addEventListener('touchend', function(e) {
-    touchEndY = e.changedTouches[0].screenY;
-    if (touchEndY - touchStartY > 100) {
-      closeModal();
-    }
+    const touchEndY = e.changedTouches[0].screenY;
+    if (touchEndY - touchStartY > 100) closeModal();
   });
 
-  // Dla urządzeń mobilnych – ukrywanie paska nawigacyjnego przy scrollowaniu (z zachowaniem logo)
+  // Ukrywanie navbara na mobile
   if (window.innerWidth < 768) {
     let prevScrollPos = window.pageYOffset;
     window.addEventListener('scroll', function() {
-      let currentScrollPos = window.pageYOffset;
+      const currentScrollPos = window.pageYOffset;
       if (prevScrollPos < currentScrollPos && currentScrollPos > 100) {
         document.querySelector('.top-nav').classList.add('hide');
       } else {
